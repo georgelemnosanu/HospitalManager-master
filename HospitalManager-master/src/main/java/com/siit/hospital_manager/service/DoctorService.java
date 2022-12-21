@@ -5,7 +5,10 @@ import com.siit.hospital_manager.model.Doctor;
 import com.siit.hospital_manager.model.dto.CreateDoctorDto;
 import com.siit.hospital_manager.model.dto.DoctorDto;
 import com.siit.hospital_manager.repository.DoctorJpaRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 import java.util.List;
@@ -37,7 +40,8 @@ public class DoctorService {
         doctorJpaRepository.save(new Doctor(createDoctorDto));
     }
 
-    public List<DoctorDto> findBySpecialization(String specialization) {
-        return null;
+    public ResponseEntity<List<Doctor>> getDoctorBySpecialization(String specialization) {
+        List<Doctor> doctor = doctorJpaRepository.findBySpecialization(specialization);
+        return new ResponseEntity<List<Doctor>>(doctorJpaRepository.findBySpecialization(specialization), HttpStatus.OK);
     }
 }

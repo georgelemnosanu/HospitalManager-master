@@ -20,13 +20,11 @@ public class DoctorController {
 
     @Autowired
     private final DoctorService doctorService;
-    private final DoctorJpaRepository doctorJpaRepository;
-
 
 
     public DoctorController(DoctorService doctorService , DoctorJpaRepository doctorJpaRepository) {
         this.doctorService = doctorService;
-        this.doctorJpaRepository = doctorJpaRepository;
+
     }
 
     @GetMapping
@@ -46,7 +44,7 @@ public class DoctorController {
 
     @GetMapping("/doctors/specialization")
     public ResponseEntity<List<Doctor>> getDoctorBySpecialization(@RequestParam String specialization) {
-        return new ResponseEntity<List<Doctor>>(doctorJpaRepository.findBySpecialization(specialization), HttpStatus.OK);
+        return doctorService.getDoctorBySpecialization(specialization);
     }
 
 
