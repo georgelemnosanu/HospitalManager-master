@@ -3,15 +3,14 @@ package com.siit.hospital_manager.model.dto;
 import com.siit.hospital_manager.model.Doctor;
 
 public class DoctorDto {
-    private Integer id;
     private String name;
     private String specialization;
 
     public DoctorDto(Doctor doctor) {
-        this.id=doctor.getId();
         this.name = doctor.getName();
         this.specialization = doctor.getSpecialization();
     }
+
 
 
     public String getName() {
@@ -33,7 +32,6 @@ public class DoctorDto {
     @Override
     public String toString() {
         return "DoctorDto{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", specialization='" + specialization + '\'' +
                 '}';
