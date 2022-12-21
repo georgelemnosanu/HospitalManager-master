@@ -3,6 +3,8 @@ package com.siit.hospital_manager.model;
 import com.siit.hospital_manager.model.dto.CreateDoctorDto;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="doctors")
 public class Doctor {
@@ -50,5 +52,14 @@ public class Doctor {
 
     public void setSpecialization(String specialization) {
         this.specialization = specialization;
+    }
+
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", specialization='" + specialization + '\'' +
+                '}';
     }
 }

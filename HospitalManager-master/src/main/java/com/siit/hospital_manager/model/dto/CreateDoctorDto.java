@@ -25,4 +25,12 @@ public class CreateDoctorDto {
     public void setSpecialization(String specialization) {
         this.specialization = specialization;
     }
+
+    @Override
+    public String toString() {
+        return "CreateDoctorDto{" +
+                "name='" + name + '\'' +
+                ", specialization='" + specialization + '\'' +
+                '}';
+    }
 }

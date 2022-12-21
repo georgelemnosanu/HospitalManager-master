@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class DoctorService {
 
@@ -30,8 +32,12 @@ public class DoctorService {
         return new DoctorDto(doctor);
     }
 
+
     public void createDoctor(CreateDoctorDto createDoctorDto){
         doctorJpaRepository.save(new Doctor(createDoctorDto));
     }
 
+    public List<DoctorDto> findBySpecialization(String specialization) {
+        return null;
+    }
 }
