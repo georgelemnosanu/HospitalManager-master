@@ -2,6 +2,7 @@ package com.siit.hospital_manager.controller;
 
 import com.siit.hospital_manager.model.dto.CreatePatientDto;
 import com.siit.hospital_manager.model.dto.PatientDto;
+import com.siit.hospital_manager.model.dto.UpdatePatientDto;
 import com.siit.hospital_manager.service.PatientService;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,5 +33,16 @@ public class PatientController {
     public PatientDto findById(@PathVariable("id") Integer id) {
         return patientService.findById(id);
     }
+
+    @PatchMapping
+    public void updatePatient(@RequestBody UpdatePatientDto updatePatientDto){
+        patientService.updatePatient(updatePatientDto);
+    }
+
+    @DeleteMapping
+    public void deletePatient(@RequestParam("id") Integer id){
+        patientService.deletePatient(id);
+    }
+
 
 }

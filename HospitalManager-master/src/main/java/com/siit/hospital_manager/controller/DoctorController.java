@@ -4,6 +4,7 @@ package com.siit.hospital_manager.controller;
 import com.siit.hospital_manager.model.Doctor;
 import com.siit.hospital_manager.model.dto.CreateDoctorDto;
 import com.siit.hospital_manager.model.dto.DoctorDto;
+import com.siit.hospital_manager.model.dto.UpdateDoctorDto;
 import com.siit.hospital_manager.repository.DoctorJpaRepository;
 import com.siit.hospital_manager.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,18 @@ public class DoctorController {
     public List<DoctorDto> getDoctorBySpecialization(@RequestParam String specialization) {
         return doctorService.getDoctorBySpecialization(specialization);
     }
+
+    @PatchMapping
+    public void updateDoctor(@RequestBody UpdateDoctorDto updateDoctorDto){
+        doctorService.updateDoctor(updateDoctorDto);
+    }
+
+    @DeleteMapping
+    public void deleteDoctor(@RequestParam("id")Integer id){
+        doctorService.deleteDoctor(id);
+    }
+
+
 
 
 
