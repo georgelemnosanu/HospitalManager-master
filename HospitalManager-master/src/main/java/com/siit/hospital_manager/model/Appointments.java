@@ -1,6 +1,6 @@
 package com.siit.hospital_manager.model;
 
-public class Apoiment {
+public class Appointments {
 
     private Integer id;
     private String dateAndHour;
