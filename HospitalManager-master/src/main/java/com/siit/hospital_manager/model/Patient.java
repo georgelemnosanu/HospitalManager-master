@@ -3,18 +3,22 @@ package com.siit.hospital_manager.model;
 import com.siit.hospital_manager.model.dto.CreatePatientDto;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="patients")
 public class Patient {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-//    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
     private Integer age;
-//    private String password;
 
+
+    @OneToMany(mappedBy = "patient", fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL)
+    List<Appointment> appointments;
     public Patient() {
     }
 

@@ -16,14 +16,6 @@ public class Doctor {
     private String name;
     private String specialization;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public Doctor() {
     }
 
@@ -32,6 +24,14 @@ public class Doctor {
         this.specialization=createDoctorDto.getSpecialization();
     }
 
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Doctor(String name, String specialization) {
         this.name = name;
