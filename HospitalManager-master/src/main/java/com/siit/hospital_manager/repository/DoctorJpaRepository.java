@@ -11,4 +11,5 @@ import java.util.List;
 public interface DoctorJpaRepository extends JpaRepository<Doctor,Integer> {
     List<Doctor> findBySpecialization(String specialization);
 
+
 }

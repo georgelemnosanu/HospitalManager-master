@@ -1,7 +1,6 @@
 
 package com.siit.hospital_manager.controller;
 
-import com.siit.hospital_manager.model.Doctor;
 import com.siit.hospital_manager.model.dto.CreateDoctorDto;
 import com.siit.hospital_manager.model.dto.DoctorDto;
 import com.siit.hospital_manager.model.dto.UpdateDoctorDto;
@@ -54,7 +53,6 @@ public class DoctorController {
     public void deleteDoctor(@RequestParam("id")Integer id){
         doctorService.deleteDoctor(id);
     }
-
 
 
 

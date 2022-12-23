@@ -24,6 +24,18 @@ public class Appointment {
     @JoinColumn(name="patient_id",nullable=false)
     private Patient patient;
 
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private Doctor doctor;
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
 
     public Appointment(Integer id,LocalDateTime date, Patient patient) {
         this.id = id;

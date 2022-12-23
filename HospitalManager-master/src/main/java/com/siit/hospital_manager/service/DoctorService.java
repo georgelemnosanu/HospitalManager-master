@@ -52,7 +52,6 @@ public class DoctorService {
     }
 
 
-
     public List<DoctorDto> getDoctorBySpecialization(String specialization) {
         return doctorJpaRepository.findBySpecialization(specialization).stream().map(DoctorDto::new).toList();
     }
