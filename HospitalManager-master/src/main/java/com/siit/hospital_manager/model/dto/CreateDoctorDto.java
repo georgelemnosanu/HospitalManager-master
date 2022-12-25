@@ -1,5 +1,10 @@
 package com.siit.hospital_manager.model.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class CreateDoctorDto {
     private String name;
     private String specialization;
@@ -10,27 +15,4 @@ public class CreateDoctorDto {
         this.specialization = specialization;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSpecialization() {
-        return specialization;
-    }
-
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
-    }
-
-    @Override
-    public String toString() {
-        return "CreateDoctorDto{" +
-                "name='" + name + '\'' +
-                ", specialization='" + specialization + '\'' +
-                '}';
-    }
 }

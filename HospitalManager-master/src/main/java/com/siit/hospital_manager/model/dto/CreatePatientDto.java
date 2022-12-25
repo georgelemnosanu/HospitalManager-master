@@ -1,5 +1,10 @@
 package com.siit.hospital_manager.model.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class CreatePatientDto {
 
     private String name;
@@ -10,19 +15,4 @@ public class CreatePatientDto {
         this.age = age;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
 }

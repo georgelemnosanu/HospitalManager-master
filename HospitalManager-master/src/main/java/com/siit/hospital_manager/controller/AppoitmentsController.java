@@ -9,6 +9,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @RestController
 @RequestMapping("/appointments")
 public class AppoitmentsController {
@@ -23,7 +24,7 @@ public class AppoitmentsController {
     }
 
     @GetMapping("/patient/{id}")
-    public List<Appointment> getPatientId(@PathVariable("id") Integer id){
+    public List<Appointment> getPatientId(@PathVariable("id") Integer id) {
         return appointmentsRepository.findAllByPatientId(id);
     }
 

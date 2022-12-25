@@ -36,18 +36,17 @@ public class PatientService {
         patientJpaRepository.save(new Patient(createPatientDto));
     }
 
-   public void updatePatient(UpdatePatientDto updatePatientDto){
-       Patient patient = patientJpaRepository.findById(updatePatientDto.getId()).orElseThrow(()->new RuntimeException("Patient with id"+updatePatientDto.getId()+"not found"));
-      patient.setAge(updatePatientDto.getAge());
-      patientJpaRepository.save(patient);
+    public void updatePatient(UpdatePatientDto updatePatientDto) {
+        Patient patient = patientJpaRepository.findById(updatePatientDto.getId()).orElseThrow(() -> new RuntimeException("Patient with id" + updatePatientDto.getId() + "not found"));
+        patient.setAge(updatePatientDto.getAge());
+        patientJpaRepository.save(patient);
 
-   }
+    }
 
-   public void deletePatient(Integer id){
-        Patient patient=patientJpaRepository.findById(id).orElseThrow(()->new RuntimeException("Patient with id"+id+"not found"));
+    public void deletePatient(Integer id) {
+        Patient patient = patientJpaRepository.findById(id).orElseThrow(() -> new RuntimeException("Patient with id" + id + "not found"));
         patientJpaRepository.deleteById(id);
-   }
-
+    }
 
 
 }

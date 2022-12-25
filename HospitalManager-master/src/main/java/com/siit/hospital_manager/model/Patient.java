@@ -2,15 +2,19 @@ package com.siit.hospital_manager.model;
 
 import com.siit.hospital_manager.model.dto.CreatePatientDto;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
-@Table(name="patients")
+@Table(name = "patients")
+@Getter
+@Setter
 public class Patient {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private Integer age;
@@ -19,6 +23,7 @@ public class Patient {
     @OneToMany(mappedBy = "patient", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
     List<Appointment> appointments;
+
     public Patient() {
     }
 
@@ -33,27 +38,4 @@ public class Patient {
         this.age = age;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
 }

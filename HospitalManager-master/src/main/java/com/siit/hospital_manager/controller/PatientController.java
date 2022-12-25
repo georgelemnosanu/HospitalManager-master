@@ -19,12 +19,12 @@ public class PatientController {
     }
 
     @GetMapping
-    public List<PatientDto> findAll(){
+    public List<PatientDto> findAll() {
         return patientService.findAll();
     }
 
     @PostMapping
-    public void createPatient(@RequestBody CreatePatientDto createPatientDto){
+    public void createPatient(@RequestBody CreatePatientDto createPatientDto) {
         patientService.createPatient(createPatientDto);
     }
 
@@ -35,12 +35,12 @@ public class PatientController {
     }
 
     @PatchMapping
-    public void updatePatient(@RequestBody UpdatePatientDto updatePatientDto){
+    public void updatePatient(@RequestBody UpdatePatientDto updatePatientDto) {
         patientService.updatePatient(updatePatientDto);
     }
 
     @DeleteMapping
-    public void deletePatient(@RequestParam("id") Integer id){
+    public void deletePatient(@RequestParam("id") Integer id) {
         patientService.deletePatient(id);
     }
 

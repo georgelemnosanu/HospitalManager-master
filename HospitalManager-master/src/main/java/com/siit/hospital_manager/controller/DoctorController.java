@@ -19,19 +19,19 @@ public class DoctorController {
     private final DoctorService doctorService;
 
 
-    public DoctorController(DoctorService doctorService , DoctorJpaRepository doctorJpaRepository) {
+    public DoctorController(DoctorService doctorService, DoctorJpaRepository doctorJpaRepository) {
         this.doctorService = doctorService;
 
     }
 
     @GetMapping
-    public List<DoctorDto> findAll(){
+    public List<DoctorDto> findAll() {
         return doctorService.findAll();
     }
 
     @PostMapping
-    public void createDoctor(@RequestBody CreateDoctorDto createDoctorDto){
-            doctorService.createDoctor(createDoctorDto);
+    public void createDoctor(@RequestBody CreateDoctorDto createDoctorDto) {
+        doctorService.createDoctor(createDoctorDto);
     }
 
     @GetMapping("{id}")
@@ -45,19 +45,17 @@ public class DoctorController {
     }
 
     @PatchMapping
-    public void updateDoctor(@RequestBody UpdateDoctorDto updateDoctorDto){
+    public void updateDoctor(@RequestBody UpdateDoctorDto updateDoctorDto) {
         doctorService.updateDoctor(updateDoctorDto);
     }
 
     @DeleteMapping
-    public void deleteDoctor(@RequestParam("id")Integer id){
+    public void deleteDoctor(@RequestParam("id") Integer id) {
         doctorService.deleteDoctor(id);
     }
 
 
-
-
-    }
+}
 
 
 

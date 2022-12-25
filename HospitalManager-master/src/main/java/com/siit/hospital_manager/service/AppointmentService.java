@@ -13,10 +13,9 @@ public class AppointmentService {
         this.appointmentsRepository = appointmentsRepository;
     }
 
-    public void createAppointment(Appointment appointment){
+    public void createAppointment(Appointment appointment) {
         appointmentsRepository.save(new Appointment(appointment));
     }
-
 
 
 }
