@@ -6,6 +6,7 @@ import com.siit.hospital_manager.model.dto.DoctorDto;
 import com.siit.hospital_manager.model.dto.UpdateDoctorDto;
 import com.siit.hospital_manager.repository.DoctorJpaRepository;
 import com.siit.hospital_manager.service.DoctorService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,16 +14,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/doctors")
+@RequiredArgsConstructor
 public class DoctorController {
 
     @Autowired
     private final DoctorService doctorService;
 
-
-    public DoctorController(DoctorService doctorService, DoctorJpaRepository doctorJpaRepository) {
-        this.doctorService = doctorService;
-
-    }
 
     @GetMapping
     public List<DoctorDto> findAll() {
