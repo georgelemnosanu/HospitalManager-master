@@ -2,17 +2,23 @@ package com.siit.hospital_manager.model;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.siit.hospital_manager.model.dto.AppointmentDto;
+import com.siit.hospital_manager.model.dto.DoctorDto;
+import com.siit.hospital_manager.model.dto.PatientDto;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "appointments")
-
+@Getter
+@Setter
 public class Appointment {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "date")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
@@ -20,24 +26,27 @@ public class Appointment {
     private LocalDateTime date;
 
 
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "patient_id", nullable = false)
+    private PatientDto patient;
+
     @ManyToOne(fetch = FetchType.EAGER,optional = false)
-    @JoinColumn(name="patient_id",nullable=false)
-    private Patient patient;
-
-    @ManyToOne
     @JoinColumn(name = "doctor_id")
-    private Doctor doctor;
+    private DoctorDto doctor;
 
-    public Doctor getDoctor() {
-        return doctor;
+    public Appointment(AppointmentDto appointment) {
     }
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
+    public AppointmentDto toDto(){
+        return AppointmentDto.builder().
+                id(id).
+                date(date).
+                patient(patient).
+                doctor(doctor).
+                build();
     }
 
-
-    public Appointment(Integer id,LocalDateTime date, Patient patient) {
+    public Appointment(Integer id, LocalDateTime date, PatientDto patient) {
         this.id = id;
         this.date = date;
         this.patient = patient;
@@ -49,27 +58,4 @@ public class Appointment {
     public Appointment(Appointment appointment) {
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
 }

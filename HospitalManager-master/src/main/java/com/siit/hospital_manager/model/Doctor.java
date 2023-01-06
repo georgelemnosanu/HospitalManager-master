@@ -2,11 +2,16 @@ package com.siit.hospital_manager.model;
 
 import com.siit.hospital_manager.model.dto.CreateDoctorDto;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
-@Table(name="doctors")
+@Table(name = "doctors")
+@Getter
+@Setter
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -20,50 +25,13 @@ public class Doctor {
     @OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
     List<Appointment> appointments;
+
     public Doctor() {
     }
 
-    public Doctor(CreateDoctorDto createDoctorDto){
-        this.name=createDoctorDto.getName();
-        this.specialization=createDoctorDto.getSpecialization();
+    public Doctor(CreateDoctorDto createDoctorDto) {
+        this.name = createDoctorDto.getName();
+        this.specialization = createDoctorDto.getSpecialization();
     }
 
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Doctor(String name, String specialization) {
-        this.name = name;
-        this.specialization = specialization;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSpecialization() {
-        return specialization;
-    }
-
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
-    }
-
-    @Override
-    public String toString() {
-        return "Doctor{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", specialization='" + specialization + '\'' +
-                '}';
-    }
 }

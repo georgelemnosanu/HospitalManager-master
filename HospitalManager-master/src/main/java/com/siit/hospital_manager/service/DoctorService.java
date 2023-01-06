@@ -23,34 +23,33 @@ public class DoctorService {
 
     }
 
-    public List<DoctorDto> findAll(){
+    public List<DoctorDto> findAll() {
         return doctorJpaRepository.
                 findAll().
                 stream().map(DoctorDto::new).
                 toList();
     }
 
-    public DoctorDto findById(Integer id){
-        Doctor doctor = doctorJpaRepository.findById(id).orElseThrow(()->new NullPointerException("Doctor with id "+ id +"has not been found"));
+    public DoctorDto findById(Integer id) {
+        Doctor doctor = doctorJpaRepository.findById(id).orElseThrow(() -> new NullPointerException("Doctor with id " + id + "has not been found"));
         return new DoctorDto(doctor);
     }
 
 
-    public void createDoctor(CreateDoctorDto createDoctorDto){
+    public void createDoctor(CreateDoctorDto createDoctorDto) {
         doctorJpaRepository.save(new Doctor(createDoctorDto));
     }
 
-    public void updateDoctor(UpdateDoctorDto updateDoctorDto){
-        Doctor doctor = doctorJpaRepository.findById(updateDoctorDto.getId()).orElseThrow(()->new RuntimeException("Doctor with id "+ updateDoctorDto.getId() +"has not been found"));
+    public void updateDoctor(UpdateDoctorDto updateDoctorDto) {
+        Doctor doctor = doctorJpaRepository.findById(updateDoctorDto.getId()).orElseThrow(() -> new RuntimeException("Doctor with id " + updateDoctorDto.getId() + "has not been found"));
         doctor.setSpecialization(updateDoctorDto.getSpecialization());
         doctorJpaRepository.save(doctor);
     }
 
-    public void deleteDoctor(Integer id){
-        Doctor doctor=doctorJpaRepository.findById(id).orElseThrow(()->new RuntimeException("Doctor with id"+ id +"has not been found"));
+    public void deleteDoctor(Integer id) {
+        Doctor doctor = doctorJpaRepository.findById(id).orElseThrow(() -> new RuntimeException("Doctor with id" + id + "has not been found"));
         doctorJpaRepository.deleteById(id);
     }
-
 
     public List<DoctorDto> getDoctorBySpecialization(String specialization) {
         return doctorJpaRepository.findBySpecialization(specialization).stream().map(DoctorDto::new).toList();

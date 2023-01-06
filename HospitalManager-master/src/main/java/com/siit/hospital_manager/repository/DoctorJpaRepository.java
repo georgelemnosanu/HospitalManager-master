@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface DoctorJpaRepository extends JpaRepository<Doctor,Integer> {
+public interface DoctorJpaRepository extends JpaRepository<Doctor, Integer> {
     List<Doctor> findBySpecialization(String specialization);
 
 
