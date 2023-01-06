@@ -18,6 +18,7 @@ public class Patient {
     private Integer id;
     private String name;
     private Integer age;
+    private String phoneNumber;
 
 
     @OneToMany(mappedBy = "patient", fetch = FetchType.EAGER,
@@ -32,10 +33,11 @@ public class Patient {
         this.name = createPatientDto.getName();
     }
 
-    public Patient(Integer id, String name, Integer age) {
+    public Patient(Integer id, String name, Integer age,String phoneNumber) {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.phoneNumber=phoneNumber;
     }
 
 }

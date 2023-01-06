@@ -2,6 +2,9 @@ package com.siit.hospital_manager.model;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.siit.hospital_manager.model.dto.AppointmentDto;
+import com.siit.hospital_manager.model.dto.DoctorDto;
+import com.siit.hospital_manager.model.dto.PatientDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,14 +28,25 @@ public class Appointment {
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "patient_id", nullable = false)
-    private Patient patient;
+    private PatientDto patient;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER,optional = false)
     @JoinColumn(name = "doctor_id")
-    private Doctor doctor;
+    private DoctorDto doctor;
 
+    public Appointment(AppointmentDto appointment) {
+    }
 
-    public Appointment(Integer id, LocalDateTime date, Patient patient) {
+    public AppointmentDto toDto(){
+        return AppointmentDto.builder().
+                id(id).
+                date(date).
+                patient(patient).
+                doctor(doctor).
+                build();
+    }
+
+    public Appointment(Integer id, LocalDateTime date, PatientDto patient) {
         this.id = id;
         this.date = date;
         this.patient = patient;

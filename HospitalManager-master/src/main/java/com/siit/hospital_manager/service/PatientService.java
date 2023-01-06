@@ -39,6 +39,7 @@ public class PatientService {
     public void updatePatient(UpdatePatientDto updatePatientDto) {
         Patient patient = patientJpaRepository.findById(updatePatientDto.getId()).orElseThrow(() -> new RuntimeException("Patient with id" + updatePatientDto.getId() + "not found"));
         patient.setAge(updatePatientDto.getAge());
+        patient.setPhoneNumber(updatePatientDto.getPhoneNumber());
         patientJpaRepository.save(patient);
 
     }
