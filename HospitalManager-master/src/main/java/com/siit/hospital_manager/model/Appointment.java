@@ -8,13 +8,13 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "appointments")
 @Getter
 @Setter
+
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +30,7 @@ public class Appointment {
     @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
 
-    @JsonBackReference
+
     @ManyToOne(fetch = FetchType.EAGER,optional = false)
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
@@ -47,8 +47,6 @@ public class Appointment {
 
     public Appointment(AppointmentDto appointment) {
     }
-
-
 
     public Appointment(Integer id, LocalDateTime date, Patient patient,Doctor doctor) {
         this.id = id;

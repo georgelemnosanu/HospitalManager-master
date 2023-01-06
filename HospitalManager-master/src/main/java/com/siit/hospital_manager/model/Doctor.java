@@ -22,11 +22,10 @@ public class Doctor {
     private String name;
     private String specialization;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER,
-            cascade = CascadeType.ALL)
-    List<Appointment> appointments;
 
+//    @OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER,
+//            cascade = CascadeType.ALL)
+//    List<Appointment> appointments;
     public Doctor() {
     }
 

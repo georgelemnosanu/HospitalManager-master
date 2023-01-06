@@ -37,8 +37,8 @@ public class AppointmentService {
     }
 
 
-    public ResponseEntity<Appointment> createAppointment(Appointment createAppointmentDto) {
-        return new ResponseEntity<>(appointmentsRepository.save(createAppointmentDto), HttpStatus.CREATED);
+    public ResponseEntity<Appointment> createAppointment(Appointment appointment) {
+        return new ResponseEntity<>(appointmentsRepository.save(appointment), HttpStatus.CREATED);
     }
 
     public void updateAppointment(UpdateAppointmentDto updateAppointmentDto){
