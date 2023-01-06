@@ -1,5 +1,6 @@
 package com.siit.hospital_manager.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.siit.hospital_manager.model.dto.CreateDoctorDto;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -22,10 +23,9 @@ public class Doctor {
     private String specialization;
 
 
-    @OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER,
-            cascade = CascadeType.ALL)
-    List<Appointment> appointments;
-
+//    @OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER,
+//            cascade = CascadeType.ALL)
+//    List<Appointment> appointments;
     public Doctor() {
     }
 

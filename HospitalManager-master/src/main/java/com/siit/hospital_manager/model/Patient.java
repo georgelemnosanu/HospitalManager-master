@@ -1,5 +1,7 @@
 package com.siit.hospital_manager.model;
 
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.siit.hospital_manager.model.dto.CreatePatientDto;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -20,10 +22,10 @@ public class Patient {
     private Integer age;
     private String phoneNumber;
 
-
-    @OneToMany(mappedBy = "patient", fetch = FetchType.EAGER,
-            cascade = CascadeType.ALL)
-    List<Appointment> appointments;
+//    @JsonManagedReference
+//    @OneToMany(mappedBy = "patient", fetch = FetchType.EAGER,
+//                cascade = CascadeType.ALL)
+//    List<Appointment> appointments;
 
     public Patient() {
     }
