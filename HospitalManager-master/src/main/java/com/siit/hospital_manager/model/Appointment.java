@@ -28,11 +28,11 @@ public class Appointment {
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "patient_id", nullable = false)
-    private PatientDto patient;
+    private Patient patient;
 
     @ManyToOne(fetch = FetchType.EAGER,optional = false)
     @JoinColumn(name = "doctor_id")
-    private DoctorDto doctor;
+    private Doctor doctor;
 
     public Appointment(AppointmentDto appointment) {
     }
@@ -46,10 +46,11 @@ public class Appointment {
                 build();
     }
 
-    public Appointment(Integer id, LocalDateTime date, PatientDto patient) {
+    public Appointment(Integer id, LocalDateTime date, Patient patient,Doctor doctor) {
         this.id = id;
         this.date = date;
         this.patient = patient;
+        this.doctor= doctor;
     }
 
     public Appointment() {
