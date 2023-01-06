@@ -4,6 +4,8 @@ import com.siit.hospital_manager.model.Appointment;
 import com.siit.hospital_manager.model.dto.AppointmentDto;
 import com.siit.hospital_manager.model.dto.UpdateAppointmentDto;
 import com.siit.hospital_manager.repository.AppointmentsRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,24 +19,26 @@ public class AppointmentService {
         this.appointmentsRepository = appointmentsRepository;
     }
 
-    public List<AppointmentDto> findAllByPatientId(Integer id){
+    public List<AppointmentDto> findAllByPatientId(Integer id) {
         List<Appointment> appointments = appointmentsRepository.findAllByPatientId(id);
-        return appointments.
-                stream().
-                map(Appointment::toDto).
-                toList();
+
+        return appointments
+                .stream()
+                .map(Appointment::toDto)
+                .toList();
     }
 
-    public List<AppointmentDto> findAll(){
-       return appointmentsRepository.
-               findAll().
-               stream().
-               map(Appointment::toDto).
-               toList();
+
+    public List<AppointmentDto> findAll() {
+        return appointmentsRepository.findAll()
+                .stream()
+                .map(Appointment::toDto)
+                .toList();
     }
 
-    public void createAppointment(AppointmentDto appointmentDto) {
-        appointmentsRepository.save(new Appointment(appointmentDto));
+
+    public ResponseEntity<Appointment> createAppointment(Appointment createAppointmentDto) {
+        return new ResponseEntity<>(appointmentsRepository.save(createAppointmentDto), HttpStatus.CREATED);
     }
 
     public void updateAppointment(UpdateAppointmentDto updateAppointmentDto){

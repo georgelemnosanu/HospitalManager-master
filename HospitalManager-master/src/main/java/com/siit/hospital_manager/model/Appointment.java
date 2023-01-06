@@ -1,10 +1,9 @@
 package com.siit.hospital_manager.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.siit.hospital_manager.model.dto.AppointmentDto;
-import com.siit.hospital_manager.model.dto.DoctorDto;
-import com.siit.hospital_manager.model.dto.PatientDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,22 +19,22 @@ public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @Column(name = "date")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime date;
 
-
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER,optional = false)
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
-    public Appointment(AppointmentDto appointment) {
-    }
 
     public AppointmentDto toDto(){
         return AppointmentDto.builder().
@@ -45,6 +44,11 @@ public class Appointment {
                 doctor(doctor).
                 build();
     }
+
+    public Appointment(AppointmentDto appointment) {
+    }
+
+
 
     public Appointment(Integer id, LocalDateTime date, Patient patient,Doctor doctor) {
         this.id = id;
