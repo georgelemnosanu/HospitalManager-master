@@ -4,6 +4,7 @@ package com.siit.hospital_manager.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.siit.hospital_manager.model.dto.AppointmentDto;
+import com.siit.hospital_manager.model.dto.CreateAppointmentDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -47,6 +48,15 @@ public class Appointment {
 
     public Appointment(AppointmentDto appointment) {
     }
+
+
+    public Appointment(CreateAppointmentDto createAppointmentDto){
+        this.date=createAppointmentDto.getDate();
+        this.patient=createAppointmentDto.getPatient();
+        this.doctor=createAppointmentDto.getDoctor();
+
+    }
+
 
     public Appointment(Integer id, LocalDateTime date, Patient patient,Doctor doctor) {
         this.id = id;

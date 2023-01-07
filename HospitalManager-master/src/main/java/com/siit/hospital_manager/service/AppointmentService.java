@@ -2,6 +2,7 @@ package com.siit.hospital_manager.service;
 
 import com.siit.hospital_manager.model.Appointment;
 import com.siit.hospital_manager.model.dto.AppointmentDto;
+import com.siit.hospital_manager.model.dto.CreateAppointmentDto;
 import com.siit.hospital_manager.model.dto.UpdateAppointmentDto;
 import com.siit.hospital_manager.repository.AppointmentsRepository;
 import org.springframework.http.HttpStatus;
@@ -37,8 +38,13 @@ public class AppointmentService {
     }
 
 
-    public ResponseEntity<Appointment> createAppointment(Appointment appointment) {
-        return new ResponseEntity<>(appointmentsRepository.save(appointment), HttpStatus.CREATED);
+//    public ResponseEntity<Appointment> createAppointment(Appointment appointment) {
+//        return new ResponseEntity<>(appointmentsRepository.save(appointment), HttpStatus.CREATED);
+//    }
+
+
+    public void createAppointment(CreateAppointmentDto createAppointmentDto){
+        appointmentsRepository.save(new Appointment(createAppointmentDto));
     }
 
     public void updateAppointment(UpdateAppointmentDto updateAppointmentDto){
