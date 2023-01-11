@@ -2,12 +2,13 @@ package com.siit.hospital_manager.model.dto;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Range;
 
-@Getter
-@Setter
+
+@Data
 public class CreatePatientDto {
     @NotNull(message = "Name can not be null")
     @Pattern(regexp = "[A-Z][a-z]{1,15}+ [A-Z][a-z]{1,15}+")
@@ -27,4 +28,7 @@ public class CreatePatientDto {
         this.age = age;
     }
 
+    public CreatePatientDto() {
+
+    }
 }

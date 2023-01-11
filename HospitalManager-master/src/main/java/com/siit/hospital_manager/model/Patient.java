@@ -33,6 +33,7 @@ public class Patient {
     public Patient(CreatePatientDto createPatientDto) {
         this.age = createPatientDto.getAge();
         this.name = createPatientDto.getName();
+        this.phoneNumber= createPatientDto.getPhoneNumber();
     }
 
     public Patient(Integer id, String name, Integer age,String phoneNumber) {

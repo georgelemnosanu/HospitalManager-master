@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hospital manager</title>
+</head>
+<body>
+<h2 th:text="${message}"></h2>
+<button onclick="window.location.href='/mvc/patient/viewAll';">
+    View Patients
+</button>
+
+<button onclick="window.location.href='/mvc/patient/create';">
+    Create a new patient
+</button>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>Patient List</h2>
+
+
+<table>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Phone Number</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:if="${patients.empty}">
+    <td colspan="2">No patients Registered</td>
+  </tr>
+  <tr th:each="patient:${patients}">
+    <td><span th:text="${patient.id}">ID</span></td>
+    <td><span th:text="${patient.name}">Name</span></td>
+    <td><span th:text="${patient.age}">Age</span></td>
+    <td><span th:text="${patient.phoneNumber}">PhoneNumber</span></td>
+  </tr>
+  </tbody>
+</table>
+
+<button onclick="window.location.href='/';">
+  Go HomePage
+</button>
+
+
+
+
+
+</body>
+</html>
