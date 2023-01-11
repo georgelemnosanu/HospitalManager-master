@@ -11,18 +11,18 @@
 <h2> Create patient</h2>
 <p></p>
 
-<form th:object="${createPatientDto}" th:action="@{/mvc/patient/submit}" method="post">
+<form th:object="${createAppointmentDto}" th:action="@{/mvc/appointment/submit}" method="post">
   <div class="mb-3 w-25 p-3">
-    <label class="form-label" for="name">Name:</label>
-    <input class="form-control" type="text" id="name" th:field="*{name}"/>
+    <label class="form-label" for="date">Date:</label>
+    <input class="form-control" type="text" id="date" th:field="*{date}"/>
   </div>
   <div class="mb-3 w-25 p-3">
-    <label class="form-label" for="age">Age:</label>
-    <input class="form-control" type="number" id="age" th:field="*{age}"/>
+    <label class="form-label" for="patient">Patient ID:</label>
+    <input class="form-control" type="number" id="patient" th:field="*{patient}"/>
   </div>
   <div class="mb-3 w-25 p-3">
-    <label class="form-label" for="phoneNumber">PhoneNumber:</label>
-    <input class="form-control" type="number" id="phoneNumber" th:field="*{phoneNumber}"/>
+    <label class="form-label" for="doctor">Doctor ID:</label>
+    <input class="form-control" type="number" id="doctor" th:field="*{doctor}"/>
   </div>
   <div class="w-25 p-3 text-end">
     <input type="submit" value="Submit" class="btn btn-primary " />

@@ -14,4 +14,13 @@ public class AppointmentDto {
     private Patient patient;
     private Doctor doctor;
 
+    @Override
+    public String toString() {
+        return "AppointmentDto{" +
+                "id=" + id +
+                ", date=" + date +
+                ", patient=" + patient +
+                ", doctor=" + doctor +
+                '}';
+    }
 }

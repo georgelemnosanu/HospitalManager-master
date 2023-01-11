@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hospital manager</title>
+</head>
+<body>
+
+<h3>Appointment created successfully!</h3>
+
+<div th:object = "${createAppointmentDto}">
+    <p th:text="'Date: ' + *{date}"></p>
+    <p th:text="'Patient: ' + *{patient}"></p>
+    <p th:text="'Doctor: ' + *{doctor}"></p>
+</div>
+
+<button onclick="window.location.href='/mvc/appointment/viewAppointments';">
+    View the appointments list
+</button>
+<p></p>
+<button onclick="window.location.href='/';">
+    Home
+</button>

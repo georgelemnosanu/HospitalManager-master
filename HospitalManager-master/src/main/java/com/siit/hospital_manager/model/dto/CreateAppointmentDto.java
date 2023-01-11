@@ -17,7 +17,7 @@ public class CreateAppointmentDto {
 
     @Column(name = "date")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    @JsonFormat(pattern = "yyyy-MM-ddHH:mm")
     private LocalDateTime date;
 
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<h2>Appointment List</h2>
+
+
+<table>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Date</th>
+    <th>Patient</th>
+    <th>Doctor</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="appointment:${appointments}">
+    <td><span th:text="${appointment.id}">ID</span></td>
+    <td><span th:text="${appointment.date}">Date</span></td>
+    <td><span th:text="${appointment.patient}">Patient</span></td>
+    <td><span th:text="${appointment.doctor}">Doctor</span></td>
+  </tr>
+  </tbody>
+</table>
+
+<button onclick="window.location.href='/';">
+  Go HomePage
+</button>
+
+
+
+
+
+</body>
+</html>

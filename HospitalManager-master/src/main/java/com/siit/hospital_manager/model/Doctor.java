@@ -34,4 +34,10 @@ public class Doctor {
         this.specialization = createDoctorDto.getSpecialization();
     }
 
+    @Override
+    public String toString() {
+        return "Doctor:" +
+                " Name=" + name +
+                " Specialization=" + specialization ;
+    }
 }
